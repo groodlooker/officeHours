@@ -1,4 +1,3 @@
-
 view: orders {
   sql_table_name: public.order_info ;;
 
@@ -26,6 +25,7 @@ view: orders {
   dimension: customer_name {
     type: string
     sql: ${TABLE}.customer_name ;;
+    drill_fields: [order_id,order_raw,product_name,total_sales,total_profit,average_discount]
     link: {
       label: "See Profile of {{value}}"
       url: "https://localhost:9999/dashboards/7?Customer%20Name={{value | url_encode }}"
