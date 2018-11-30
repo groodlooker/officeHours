@@ -70,7 +70,7 @@ view: orders {
   dimension: product_name {
     type: string
     link: {
-      label: "{% if _user_attributes['house'] == 'Targaryen' %} Something {% else %} Something Else {% endif %}"
+      label: "{% if _user_attributes['house'] == 'Targaryen' %} True Heir of Throne, See Sales History {% else %} Peasant, Look up inventory {% endif %}"
       url: "{%if _user_attributes['house'] == 'Targaryen' %} www.google.com {% else %} www.yahoo.com {% endif %}"
     }
     sql: ${TABLE}.product_name ;;
