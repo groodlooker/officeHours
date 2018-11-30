@@ -39,10 +39,13 @@ view: table_calculations {
     view_label: "Product Rank Details"
     type: number
   }
-  dimension: year_region_rank_tier {
+#   Table calculations 1 look
+  dimension: top_5_rank_by_yr_region {
+    sql: ${product_rank_by_year_region} ;;
     view_label: "Product Rank Details"
     type: tier
     style: integer
     tiers: [5]
+#     required_fields: [region,order_year]
   }
 }

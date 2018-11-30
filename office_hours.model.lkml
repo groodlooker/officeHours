@@ -24,7 +24,7 @@ explore: orders {
   }
   join: table_calculations {
     sql_on: ${orders.product_name} = ${table_calculations.product_name}
-    and ${orders.order_year} = ${table_calculations.order_year}
+    and DATE_TRUNC('year', orders.order_date ) = ${table_calculations.order_year}
     and ${orders.region} = ${table_calculations.region};;
     relationship: many_to_one
     type: inner
