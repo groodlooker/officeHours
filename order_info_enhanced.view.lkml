@@ -143,6 +143,8 @@ view: orders {
   parameter: sub_category_comparison {
     type: string
     suggest_dimension: sub_category
+#     optional method for enhancing performance
+#     suggest_explore: order_info_base
   }
 
   parameter: measure_select {
@@ -155,6 +157,13 @@ view: orders {
       label: "Total Profit"
       value: "profit"
     }
+  }
+
+# Your Labels will also be driven by a parameter
+  measure: selected_measure {
+    type: sum
+    label_from_parameter: measure_select
+    sql: ${TABLE}.{% parameter measure_select %} ;;
   }
 
 #   Parameterized Dimensions
@@ -187,12 +196,6 @@ view: orders {
   measure: average_discount {
     type: average
     sql: ${discount} ;;
-  }
-
-  measure: selected_measure {
-    type: sum
-    label_from_parameter: measure_select
-    sql: ${TABLE}.{% parameter measure_select %} ;;
   }
 
   measure: distinct_customer_count {
