@@ -70,7 +70,11 @@ view: orders {
   dimension: product_name {
     type: string
     link: {
-      label: "{% if _user_attributes['house'] == 'Targaryen' %} True Heir of Throne, See Sales History {% else %} Peasant, Look up inventory {% endif %}"
+      label: "{% if _user_attributes['house'] == 'Targaryen' %}
+      True Heir of Throne, See Sales History
+      {% else %}
+      Peasant, Look up inventory
+      {% endif %}"
       url: "{%if _user_attributes['house'] == 'Targaryen' %} www.google.com {% else %} www.yahoo.com {% endif %}"
     }
     sql: ${TABLE}.product_name ;;
@@ -201,6 +205,11 @@ view: orders {
   measure: distinct_customer_count {
     type: count_distinct
     sql: ${customer_name} ;;
+  }
+
+  measure: distinct_order_count {
+    type: count_distinct
+    sql: ${order_id} ;;
   }
 
 #   ###################################
