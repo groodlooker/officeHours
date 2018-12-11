@@ -10,12 +10,6 @@ datagroup: office_hours_default_datagroup {
 
 persist_with: office_hours_default_datagroup
 
-# - explore: date_dimension
-
-# - explore: order_info
-
-# - explore: regional_managers
-
 explore: orders {
   join: customer_facts {
     sql_on: ${orders.customer_name} = ${customer_facts.customer_name} ;;
