@@ -83,6 +83,7 @@ view: orders {
   dimension: profit {
     type: number
     sql: ${TABLE}.profit ;;
+    required_access_grants: [true_heir_to_the_throne]
   }
 
   dimension: quantity {
